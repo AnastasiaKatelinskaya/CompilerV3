@@ -47,19 +47,19 @@ bool CompilerDriver::VerifyGrammarTerminalsMatchLexerTokens(const Grammar& gramm
 LLParser CompilerDriver::CreateParser()
 {
 	auto grammar = GrammarBuilder(std::make_unique<GrammarProductionFactory>())
-					   .AddProduction("<Program> => <CompositeStatement> EndOfFile")			   
+					   //.AddProduction("<Program> => <CompositeStatement> EndOfFile")			   
 					   //.AddProduction("<Program> => <Functions> EndOfFile")
-					   //.AddProduction("<Program> => PROGRAM <Functions> EndOfFile")
+					   .AddProduction("<Program> =>  <Function> EndOfFile")
 
 					   //.AddProduction("<Functions> => <Function> <Functions>")
 					   //.AddProduction("<Functions> => $")
 
-					   //.AddProduction("<Function> => <FunctionReturnType> <Identifier> LeftParenthesis <FunctionArguments> RightParenthesis <Statement> {ActionOnFunction}")
+					   .AddProduction("<Function> => <FunctionReturnType> <Identifier> LeftParenthesis <FunctionArguments> RightParenthesis <Statement> {ActionOnFunction}")
 
-					   //.AddProduction("<FunctionReturnType> => <FunctionType> {ActionOnFunctionReturnType}")
+					   .AddProduction("<FunctionReturnType> => <FunctionType> {ActionOnFunctionReturnType}")
 
 					   //.AddProduction("<FunctionType> => <Type>")
-					   //.AddProduction("<FunctionType> => Void {ActionOnVoidType}")
+					   .AddProduction("<FunctionType> => Void {ActionOnVoidType}")
 
 					   .AddProduction("<Type> => Int {ActionOnIntType}")
 					   .AddProduction("<Type> => Float {ActionOnFloatType}")

@@ -5,7 +5,7 @@ using namespace std::string_literals;
 namespace
 {
 const std::unordered_map<std::string, TokenType> KEYWORDS = {
-	{ "FUNCTION", TokenType::Void },//
+	{ "PROGRAM", TokenType::Void },
 	{ "INTEGER", TokenType::Int },
 	{ "FLOAT", TokenType::Float },
 	{ "BOOLEAN", TokenType::Bool },
